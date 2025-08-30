@@ -26,19 +26,25 @@
         "type": "color",
         "id": "background_color",
         "label": "Background Color",
-        "default": "#FFFFFF"
+        "default": "#F8F9FA"
       },
       {
         "type": "color",
         "id": "text_color",
         "label": "Text Color",
-        "default": "#000000"
+        "default": "#212529"
       },
       {
         "type": "color",
-        "id": "accent_color",
-        "label": "Accent Color",
-        "default": "#FF0000"
+        "id": "primary_color",
+        "label": "Primary Green",
+        "default": "#28A745"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary Green",
+        "default": "#218838"
       },
       {
         "type": "header",

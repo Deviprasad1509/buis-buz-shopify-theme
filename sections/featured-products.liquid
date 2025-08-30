@@ -1,18 +1,29 @@
-<section class="featured-products">
+<section class="all-products">
   <div class="container">
     <h2>{{ section.settings.title }}</h2>
     <div class="products-grid">
-      {% for product in collections.all.products limit: section.settings.product_limit %}
+      {% for product in collections.all.products %}
         <div class="product-card">
           <a href="{{ product.url }}">
-            {{ product.featured_image | image_url: width: 300 | image_tag }}
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 300 | image_tag }}
+            {% else %}
+              <div style="height: 224px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; color: #6c757d;">
+                <span>No Image</span>
+              </div>
+            {% endif %}
+            <div class="card-content">
+              <h3>{{ product.title }}</h3>
+              {% if product.metafields.custom.author %}
+                <p class="author">by {{ product.metafields.custom.author }}</p>
+              {% endif %}
+              <p class="price">{{ product.price | money }}</p>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <button type="submit" class="btn">Add to Cart</button>
+              </form>
+            </div>
           </a>
-          <form method="post" action="/cart/add">
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <button type="submit" class="btn">Add to Cart</button>
-          </form>
         </div>
       {% endfor %}
     </div>
@@ -21,22 +32,13 @@
 
 {% schema %}
 {
-  "name": "Featured Products",
+  "name": "All Products Grid",
   "settings": [
     {
       "type": "text",
       "id": "title",
       "label": "Section Title",
-      "default": "Featured Ebooks"
-    },
-    {
-      "type": "range",
-      "id": "product_limit",
-      "label": "Number of Products",
-      "min": 4,
-      "max": 12,
-      "step": 4,
-      "default": 8
+      "default": "Our Ebooks Collection"
     }
   ]
 }

@@ -4,16 +4,15 @@
       "type": "hero",
       "settings": {
         "title": "Welcome to Buis Buz",
-        "subtitle": "Discover amazing ebooks for your reading pleasure.",
-        "button_text": "Shop Now",
+        "subtitle": "Discover your next great read with our premium ebook collection.",
+        "button_text": "Browse Books",
         "button_link": "/collections/all"
       }
     },
-    "featured-products": {
+    "all-products": {
       "type": "featured-products",
       "settings": {
-        "title": "Featured Ebooks",
-        "product_limit": 8
+        "title": "Our Ebooks Collection"
       }
     },
     "categories": {
@@ -34,7 +33,7 @@
   },
   "order": [
     "hero",
-    "featured-products",
+    "all-products",
     "categories",
     "newsletter"
   ]

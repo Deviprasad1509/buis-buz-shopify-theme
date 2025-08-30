@@ -2,9 +2,10 @@
   "current": {
     "store_name": "Buis Buz",
     "store_description": "Discover your next great read with our premium ebook collection.",
-    "background_color": "#FFFFFF",
-    "text_color": "#000000",
-    "accent_color": "#FF0000",
+    "background_color": "#F8F9FA",
+    "text_color": "#212529",
+    "primary_color": "#28A745",
+    "secondary_color": "#218838",
     "heading_font": "serif",
     "body_font": "sans-serif",
     "grid_columns": "4",
