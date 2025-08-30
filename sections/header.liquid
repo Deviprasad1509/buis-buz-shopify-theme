@@ -15,10 +15,10 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
-        <a href="/" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors {{ 'text-green-600' if template == 'index' }}">
+        <a href="/" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors{% if template == 'index' %} text-green-600{% endif %}">
           Home
         </a>
-        <a href="/collections/all" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors {{ 'text-green-600' if template contains 'collection' }}">
+        <a href="/collections/all" class="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors{% if template contains 'collection' %} text-green-600{% endif %}">
           Shop
         </a>
         {% if settings.show_categories %}
