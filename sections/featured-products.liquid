@@ -1,0 +1,43 @@
+<section class="featured-products">
+  <div class="container">
+    <h2>{{ section.settings.title }}</h2>
+    <div class="products-grid">
+      {% for product in collections.all.products limit: section.settings.product_limit %}
+        <div class="product-card">
+          <a href="{{ product.url }}">
+            {{ product.featured_image | image_url: width: 300 | image_tag }}
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <button type="submit" class="btn">Add to Cart</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Featured Ebooks"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Number of Products",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "default": 8
+    }
+  ]
+}
+{% endschema %}

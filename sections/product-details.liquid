@@ -1,0 +1,27 @@
+<section class="product-details">
+  <div class="container">
+    <div class="product-images">
+      {{ product.featured_image | image_url: width: 600 | image_tag }}
+    </div>
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      {% if product.metafields.custom.author %}
+        <p class="author">By {{ product.metafields.custom.author }}</p>
+      {% endif %}
+      <div class="price">{{ product.price | money }}</div>
+      <div class="description">{{ product.description }}</div>
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        <button type="submit" class="btn">Add to Cart</button>
+      </form>
+      <p class="download-note">Download available after purchase</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "tag": "section"
+}
+{% endschema %}

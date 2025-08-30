@@ -1,0 +1,27 @@
+<section class="collection-products">
+  <div class="container">
+    <h1>{{ collection.title }}</h1>
+    <div class="products-grid">
+      {% for product in collection.products %}
+        <div class="product-card">
+          <a href="{{ product.url }}">
+            {{ product.featured_image | image_url: width: 300 | image_tag }}
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+          </a>
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <button type="submit" class="btn">Add to Cart</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "tag": "section"
+}
+{% endschema %}
