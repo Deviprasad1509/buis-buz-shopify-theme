@@ -5,8 +5,8 @@
 :root {
   --background-color: {{ settings.background_color | default: '#F8F9FA' }};
   --text-color: {{ settings.text_color | default: '#212529' }};
-  --primary-color: {{ settings.primary_color | default: '#28A745' }};
-  --secondary-color: {{ settings.secondary_color | default: '#218838' }};
+  --primary-color: {{ settings.primary_color | default: '#B2D3C2' }};
+  --secondary-color: {{ settings.secondary_color | default: '#A8C4B8' }};
   --heading-font: {{ settings.heading_font | replace: ' ', '+' | default: 'serif' }};
   --body-font: {{ settings.body_font | replace: ' ', '+' | default: 'sans-serif' }};
 }
@@ -86,10 +86,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Section Styles */
 .hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  color: white;
+  background: linear-gradient(135deg, #B2D3C2 0%, #A8C4B8 50%, #9BB8A8 100%);
+  color: #2D3748;
   padding: 4rem 0;
   text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .hero .container {
