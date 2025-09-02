@@ -1,0 +1,49 @@
+{% comment %}
+  Custom Contact Section for Buisbuz
+{% endcomment %}
+
+<div class="contact-page" style="max-width:800px; margin:0 auto; padding:40px;">
+  <h1>Contact Us</h1>
+  <p>If you have any questions, feel free to reach out to us. You can use the form below or connect with us directly.</p>
+
+  <div class="contact-details" style="margin-top:20px; line-height:1.8;">
+    <p><strong>Phone:</strong> <a href="tel:+919729022154">+91 9729022154</a></p>
+    <p><strong>Email (Admin):</strong> <a href="mailto:admin@buisbuz.com">admin@buisbuz.com</a></p>
+    <p><strong>Email (Support):</strong> <a href="mailto:support@buisbuz.com">support@buisbuz.com</a></p>
+  </div>
+
+  <div class="contact-form" style="margin-top:40px;">
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p style="color:green;">Thank you for contacting us. We’ll get back to you soon!</p>
+      {% endif %}
+
+      {% if form.errors %}
+        <ul style="color:red;">
+          {% for field in form.errors %}
+            <li>{{ field | capitalize }} - {{ form.errors.messages[field] }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <div style="margin-bottom:15px;">
+        <label for="ContactFormName">Name</label>
+        <input type="text" id="ContactFormName" name="contact[name]" required>
+      </div>
+
+      <div style="margin-bottom:15px;">
+        <label for="ContactFormEmail">Email</label>
+        <input type="email" id="ContactFormEmail" name="contact[email]" required>
+      </div>
+
+      <div style="margin-bottom:15px;">
+        <label for="ContactFormMessage">Message</label>
+        <textarea id="ContactFormMessage" name="contact[body]" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" style="background:#008060; color:#fff; padding:12px 25px; border:none; border-radius:5px; cursor:pointer;">
+        Send Message
+      </button>
+    {% endform %}
+  </div>
+</div>
